@@ -36,3 +36,19 @@ const headerLogoConatiner = document.querySelector('.header__logo-container')
 headerLogoConatiner.addEventListener('click', () => {
   location.href = 'index.html'
 })
+
+
+function redirectToMailClient(event) {
+  event.preventDefault(); // Prevent the form from submitting the traditional way
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+  const myEmail = "azharkhan2128@outlook.com"; // Replace with your email
+
+  // Construct the mailto URL
+  const mailtoLink = `mailto:${myEmail}?subject=Message from ${name}&body=Name: ${name}%0AEmail: ${email}%0AMessage: ${message}&cc=${email}`;
+
+  // Redirect to the mailto link
+  window.location.href = mailtoLink;
+}
